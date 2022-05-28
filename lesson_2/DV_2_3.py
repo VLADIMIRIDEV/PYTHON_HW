@@ -24,4 +24,3 @@ for index, el in enumerate(list_1):
 
 print(list_1)
 print(' '.join(list_1))
-

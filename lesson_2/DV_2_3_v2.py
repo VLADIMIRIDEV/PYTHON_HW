@@ -28,4 +28,3 @@ def add_zero_qotes(args):
 
 wether = add_zero_qotes(list_1)
 print(wether)
-
