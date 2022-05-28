@@ -9,12 +9,5 @@ employees = ['инженер-конструктор Игорь', 'главный
 # Можно ли при этом не создавать новый список?
 
 for employee in employees:
-    # name = employee.split(' ')
-    # print(name)
-    # name = employee.split(' ')[-1]
-    # print(name)
-    # name = employee.split(' ')[-1].lower()
-    # print(name)
     name = employee.split(' ')[-1].lower().capitalize()
-    # print(name)
     print(f'Привет, {name}!')

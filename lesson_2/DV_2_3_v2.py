@@ -15,12 +15,16 @@
 
 list_1 = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
 
-for index, el in enumerate(list_1):
-    print(index, el)
-    if el.isdigit():
-        list_1[index] = f'"{el.zfill(2)}"'
-    elif el[1:].isdigit():
-        list_1[index] = f'"{el[0]}{el[1:].zfill(2)}"'
 
-print(list_1)
-print(' '.join(list_1))
+def add_zero_qotes(args):
+    for index, el in enumerate(args):
+        # print(index, el)
+        if el.isdigit():
+            args[index] = f'"{el.zfill(2)}"'
+        elif el[1:].isdigit():
+            args[index] = f'"{el[0]}{el[1:].zfill(2)}"'
+    # print(args)
+    return ' '.join(args)
+
+wether = add_zero_qotes(list_1)
+print(wether)
