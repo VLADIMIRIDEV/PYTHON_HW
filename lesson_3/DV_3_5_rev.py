@@ -36,9 +36,5 @@ def get_jokes(num, repeat=False):
 nouns = ["автомобиль", "лес", "огонь", "город", "дом"]
 adverbs = ["сегодня", "вчера", "завтра", "позавчера", "ночью"]
 adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
-print(get_jokes(5, True))
-print(get_jokes(5))
-
-
-
-
+print(get_jokes(11, True))
+print(get_jokes(6))

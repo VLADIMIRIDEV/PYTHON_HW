@@ -23,10 +23,10 @@ dictionary_eng_rus = {
 
 def num_translate(eng_num, dictionary):
 	"""
-	Translation of strings from English into Russian using a dictionary
+	Translation of string from English into Russian using a dictionary
 	:param eng_num - number to be translated into russion
 	:param dictionary - dictionary to be used for translating
-	:return:
+	:return: translating result
 	"""
 	translated_result = dictionary.get(eng_num, None)
 	return translated_result
