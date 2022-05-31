@@ -21,19 +21,22 @@ dictionary_eng_rus = {
 }
 
 
-def num_translate_adv(eng_num):
+def num_translate_adv(eng_num, dictionary):
 	"""
 	Translation of strings from English into Russian using a dictionary, considering uppercase letters.
 	:param eng_num - number to be translated into russion
 	:return: strings of translated text
 	"""
 	if eng_num.istitle():
-		return print(str(dictionary_eng_rus.get(eng_num.lower())).title())
-	return print(dictionary_eng_rus.get(eng_num))
+		return print(str(dictionary.get(eng_num.lower())).title())
+	elif eng_num.isupper():
+		return print(str(dictionary.get(eng_num.lower())).upper())
+	else:
+		return print(dictionary.get(eng_num))
 
 
-num_translate_adv("Three")
-num_translate_adv("four")
-num_translate_adv("Five")
-num_translate_adv("севен")
-num_translate_adv("Eleven")
+num_translate_adv("THREE", dictionary_eng_rus)
+num_translate_adv("four", dictionary_eng_rus)
+num_translate_adv("Five", dictionary_eng_rus)
+num_translate_adv("севен", dictionary_eng_rus)
+num_translate_adv("Eleven", dictionary_eng_rus)

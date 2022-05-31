@@ -21,10 +21,10 @@
 # Как поступить, если потребуется сортировка по ключам?
 """ """
 
-
 def get_first_surname(*args):
 	"""
-	Way # 1: Making dict from names sorted by keys, where a key of dict is the first letter of a surname and a key of a subdict is the first letter of name/
+	Way # 1: Making dict from names sorted by keys, where a key of dict is
+	the first letter of a surname and a key of a subdict is the first letter of name.
 	:param args: list of strings those contain name and surname
 	:return: dict of dicts
 	"""
@@ -40,13 +40,17 @@ def get_first_surname(*args):
 
 def get_first_surname_letter(*args):
 	"""
-	Way # 2: Making dict from names sorted by keys, where a key of dict is the first letter of a surname and a key of a subdict is the first letter of name/
+	Way # 2: Making dict from names sorted by keys, where a key of dict is
+	the first letter of a surname and a key of a subdict is the first letter of name.
 	:param args: list of strings those contain name and surname
 	:return: dict of dicts
 	"""
 	fl_dict = {}
-	for s_name in sorted(args):
-		fl_dict.setdefault(s_name.split()[1][0], {}).setdefault(s_name.split()[0][0], []).append(s_name)
+	for name in sorted(args):
+		# fl_dict.setdefault(name.split()[1][0], {}).setdefault(name.split()[0][0], []).append(name)
+		n = name.split()[0][0]
+		s = name.split()[1][0]
+		fl_dict.setdefault(s, {}).setdefault(n, []).append(name)
 	return fl_dict
 
 

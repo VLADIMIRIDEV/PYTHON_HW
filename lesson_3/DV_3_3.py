@@ -20,13 +20,15 @@ def thesaurus(*args):
 	:return: dict
 	"""
 	names_dict = {}
-	for name in args:
+	for name in sorted(args):
 		key = name[0].capitalize()
 		if key not in names_dict:
 			names_dict[key] = []
 		names_dict[key].append(name)
-		sorted_names_dict = dict(sorted(names_dict.items()))
-	return sorted_names_dict
+	# sorted_names_dict = dict(sorted(names_dict.items()))
+	# print(sorted_names_dict)
+	# return sorted_names_dict
+	return names_dict
 
 
 names = ['Владимир',
@@ -39,5 +41,3 @@ names = ['Владимир',
 		 'Анатолий']
 
 print(thesaurus(*names))
-
-
