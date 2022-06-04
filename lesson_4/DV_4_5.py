@@ -9,5 +9,5 @@ if __name__ == "__main__":
 		currency = my_utilis.currency_rates(currency)
 		print(str(currency))
 
-	# currency = list(map(my_utilis.currency_rates, currency_list))
+	# currency = tuple(map(my_utilis.currency_rates, currency_list))
 	# print(currency)
