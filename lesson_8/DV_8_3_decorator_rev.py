@@ -13,12 +13,16 @@
 # Сможете ли вы замаскировать работу декоратора? Сможете ли вывести имя функции, например, в виде:
 # >>> a = calc_cube(5)
 # calc_cube(5: <class 'int'>)
+from functools import wraps
+
 
 def type_logger(func):
+    @wraps(func)
     def wrapper(*args, **kwargs):
-        for arg in args:
-            print(f'calc_cube({arg}: {type(arg)})')
-            res = func(arg)
+        res = tuple(args or kwargs)
+        print(args)
+        for arg in res:
+            print(f'{func.__name__} {arg}: {type(arg)}')
         return res
     return wrapper
 
@@ -27,4 +31,6 @@ def type_logger(func):
 def calc_cube(x):
     return x ** 3
 
-print(calc_cube(1, 2, 3))
+
+calc_cube(1, 2, 3.5, 'str')
+help(calc_cube)

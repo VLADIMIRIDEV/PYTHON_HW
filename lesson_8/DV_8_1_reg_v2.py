@@ -14,18 +14,27 @@
 
 import re
 
-test_emails = ['allisposible@mail.ru', 'someone@geekbrainsru', 'cumba@bk.ru', 'qwe@mailru']
-
-EMAIL = re.compile(r'(?P<username>[a-zA-Z0-9]+[_.-]*[a-zA-Z0-9]+)@(?P<domain>[a-z]+\.[a-z]{2,})')
+VALID_EMAIL = re.compile(r'(?P<username>[a-zA-Z0-9]+[_.-]*[a-zA-Z0-9]+)@(?P<domain>[a-z]+\.[a-z]{2,})')
+# VALID_EMAIL = re.compile(r'^\w*@\w*\.(com|ru)$')
 
 
 def email_parse(address):
-	match = re.search(EMAIL, address)
-	if not match:
-		raise ValueError (f'wrong email: {address}')
-	return match.groupdict()
+	result = {}
+
+	try:
+		if VALID_EMAIL.match(address):
+			for arg in address:
+				login, domain = re.split(r'@', address)
+				result['login'] = login
+				result['domain'] = domain
+		else:
+			raise ValueError
+	except ValueError:
+		return print(f'ValueError: wrong email: {arg}')
+	return result
 
 
-res = map(email_parse, test_emails)
-for r in res:
-	print(r)
+if __name__ == '__main__':
+	test_emails = ['allisposible@mail.ru', 'someone@geekbrainsru', 'cumba@bk.ru', 'qwe@mailru']
+
+	print(email_parse(test_emails))

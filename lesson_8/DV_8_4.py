@@ -13,14 +13,17 @@
 #     raise ValueError(msg)
 # ValueError: wrong val -5
 # Примечание: сможете ли вы замаскировать работу декоратора?
+from functools import wraps
+
 
 def val_checker(check):
     def dec(func):
+        @wraps(func)
         def wrapper(*args):
             if check(*args):
                 return func(*args)
             else:
-                raise ValueError (f'wrong value of {args}')
+                raise ValueError(f'wrong value of {args}')
         return wrapper
     return dec
 
@@ -28,6 +31,7 @@ def val_checker(check):
 @val_checker(check=lambda x: isinstance(x, int))
 def calc_cube(x):
     return x ** 3
+
 
 print(calc_cube(7))
 print(calc_cube('7'))
