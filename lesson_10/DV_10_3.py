@@ -50,18 +50,10 @@ class Cell:
 		return f'The result of division (float) is: {self.quantity / other.quantity}'
 
 	def make_order(self, cells_quantity_in_row):
-		result = []
-		for row in range(self.quantity // cells_quantity_in_row): # узнали количество рядов
-			result_row = []
-			for _ in range(cells_quantity_in_row):
-				result_row.append('*')
-			result.append(''.join(result_row))
-		result_last_row = []
-		for row in range(self.quantity % cells_quantity_in_row): # узнали количество ячеек в последнем ряду
-			result_last_row.append('*')
-		result.append(''.join(result_last_row))
-		result = '\n'.join(result)
-		print(result)
+		result = ''.join([
+			'*\\n' if i % cells_quantity_in_row == 0 and i < self.quantity else '*'
+			for i in range(1, self.quantity + 1)])
+		return result
 
 
 if __name__ == '__main__':
