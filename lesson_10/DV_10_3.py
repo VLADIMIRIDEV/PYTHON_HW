@@ -50,10 +50,13 @@ class Cell:
 		return f'The result of division (float) is: {self.quantity / other.quantity}'
 
 	def make_order(self, cells_quantity_in_row):
-		result = ''.join([
-			'*\\n' if i % cells_quantity_in_row == 0 and i < self.quantity else '*'
-			for i in range(1, self.quantity + 1)])
-		return result
+		# result = ''.join([
+		# 	'*\\n' if i % cells_quantity_in_row == 0 and i < self.quantity else '*'
+		# 	for i in range(1, self.quantity + 1)])
+		# return result
+		return '\\n'.join(
+			['*' * cells_quantity_in_row for _ in range(self.quantity // cells_quantity_in_row)]
+		) + "\\n" + '*' * (self.quantity % cells_quantity_in_row)
 
 
 if __name__ == '__main__':
